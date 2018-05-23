@@ -1,1 +1,4 @@
-# strings
+Strings
+-
+
+Package `strings` implements simple string functions.
