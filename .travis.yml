@@ -8,7 +8,11 @@ install:
 
 before_script:
   - go get -u golang.org/x/lint/golint
+  - go get -u github.com/mattn/goveralls
 
 script:
   - go fmt ./...
   - $GOPATH/bin/golint ./...
+
+after_script:
+  - $GOPATH/bin/goveralls -service=travis-pro
