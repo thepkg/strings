@@ -5,15 +5,16 @@ jobs:
     docker:
       - image: cn007b/go:1.10
 
-    working_directory: /go/src/github.com/thepkg/strings
+    working_directory: $GOPATH # Actual value: /go/src/github.com/thepkg/strings
 
     steps:
       - checkout
 
       - run: go get -v -t -d ./...
+      - run: go get -u github.com/thepkg/strings
 
       - run: go vet
       - run: go fmt ./...
       - run: golint ./...
 
-      - run: go test -v ./...
+      - run: go test -v -covermode=count -coverprofile=coverage.out
