@@ -7,3 +7,7 @@ Strings
 [![godoc](https://godoc.org/github.com/thepkg/strings?status.svg)](https://godoc.org/github.com/thepkg/strings)
 
 Package `strings` implements simple string functions.
+
+## Installation
+
+`go get -u github.com/thepkg/strings`
