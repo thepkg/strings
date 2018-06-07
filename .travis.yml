@@ -8,11 +8,12 @@ install:
 
 before_script:
   - go get -u golang.org/x/lint/golint
+  - go get -u golang.org/x/tools/cmd/cover
   - go get -u github.com/mattn/goveralls
 
 script:
+  - go vet
   - go fmt ./...
   - $GOPATH/bin/golint ./...
-
-after_script:
-  - $GOPATH/bin/goveralls -service=travis-pro
+  - go test -v -covermode=count -coverprofile=coverage.out
+  - $GOPATH/bin/goveralls -coverprofile=coverage.out -service=travis-ci
