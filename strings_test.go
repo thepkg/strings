@@ -1,8 +1,10 @@
 package strings
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestX(t *testing.T) {
+func TestToUpperFirst(t *testing.T) {
 	t.Run("Simple case", func(t *testing.T) {
 		e := "My test"
 		a := ToUpperFirst("my test")
